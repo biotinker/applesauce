@@ -113,4 +113,11 @@ var (
 	// Defaults to -X (the peeler spike direction).
 	CrankAxis = r3.Vector{X: -1, Y: 0, Z: 0.05}
 
+	// BowlRegionBox is a world-frame bounding box used to filter point clouds
+	// so that only points within the bowl region are passed to apple detection.
+	BowlRegionBox, _ = spatialmath.NewBox(
+		spatialmath.NewPoseFromPoint(r3.Vector{X: -220, Y: 500, Z: 1100}),
+		r3.Vector{X: 600, Y: 506, Z: 540},
+		"bowl_region",
+	)
 )
